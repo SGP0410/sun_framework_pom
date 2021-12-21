@@ -10,6 +10,13 @@
     <artifactId>sun_framework_pom</artifactId>
     <!--工程版本号-->
     <version>1.0</version>
+    <modules>
+        <module>sun_ability</module>
+        <module>sun_business</module>
+        <module>sun_common</module>
+        <module>sun_config</module>
+        <module>sun_data</module>
+    </modules>
     <!--项目的打包类型：pom、jar、war。父类型都为pom类型-->
     <packaging>pom</packaging>
 
