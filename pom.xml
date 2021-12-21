@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--包名-->
+    <groupId>com.sun</groupId>
+    <!--工程名-->
+    <artifactId>sun_framework_pom</artifactId>
+    <!--工程版本号-->
+    <version>1.0</version>
+    <!--项目的打包类型：pom、jar、war。父类型都为pom类型-->
+    <packaging>pom</packaging>
+
+    <!--版本管理-->
+    <properties>
+        <jdk.version>1.8</jdk.version>
+        <maven-plugin.version>3.8.1</maven-plugin.version>
+        <spring-boot.version>2.3.0.RELEASE</spring-boot.version>
+        <spring-cloud-netflix.version>Hoxton.SR9</spring-cloud-netflix.version>
+        <spring-cloud-alibaba.version>2.2.6.RELEASE</spring-cloud-alibaba.version>
+        <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
+        <mysql-driver.version>8.0.25</mysql-driver.version>
+    </properties>
+
+
+    <!--配置依赖管理
+        springboot
+        spring cloud netflix
+        spring cloud alibaba
+    -->
+    <!--dependencyManagement里只是声明依赖，并不实现引入，因此子项目需要显示的声明需要用的依赖。-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+<!--
+    import: 将spring-boot-dependencies中dependencyManagement下的dependencies插入到当前工程的dependencyManagement中，所以不存在依赖传递。
+    无import: 将spring-boot-dependencies 的dependencies全部插入到当前工程的dependencies中，并且会依赖传递。
+-->
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud-netflix.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+
+            <!--数据库相关-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <!--数据库驱动-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-driver.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+
+    <build>
+        <plugins>
+            <!--maven编译插件-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-plugin.version}</version>
+                <configuration>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <!--springboot整合maven-->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>
