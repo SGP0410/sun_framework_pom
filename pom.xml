@@ -29,6 +29,7 @@
         <spring-cloud-alibaba.version>2.2.6.RELEASE</spring-cloud-alibaba.version>
         <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
         <mysql-driver.version>8.0.25</mysql-driver.version>
+        <basic.version>1.0</basic.version>
     </properties>
 
 
@@ -80,6 +81,13 @@
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql-driver.version}</version>
+            </dependency>
+
+            <!--自己的模块版本管理-->
+            <dependency>
+                <groupId>com.sun</groupId>
+                <artifactId>sun_common_web</artifactId>
+                <version>${basic.version}</version>
             </dependency>
 
         </dependencies>
