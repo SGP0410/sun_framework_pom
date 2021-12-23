@@ -3,17 +3,23 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>sun_framework_pom</artifactId>
+        <artifactId>sun_business</artifactId>
         <groupId>com.sun</groupId>
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>sun_business</artifactId>
+    <artifactId>sun_business_demo</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>sun_business_demo</module>
+        <module>sun_business_core</module>
+        <module>sun_business_feign</module>
+        <module>sun_business_protocol</module>
     </modules>
 
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
 
 </project>
