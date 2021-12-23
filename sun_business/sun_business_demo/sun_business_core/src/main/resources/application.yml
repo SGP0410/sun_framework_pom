@@ -3,3 +3,6 @@ server:
 spring:
   application:
     name: sun-business-demo
+  #配置当前生效的环境
+  profiles:
+    active: '@sun-profiles@'
