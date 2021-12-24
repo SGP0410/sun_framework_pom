@@ -1,0 +1,3 @@
+#配置日志文件
+logging:
+  config: classpath:log/log4j2.xml

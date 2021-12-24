@@ -1,2 +1,4 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 com.sun.common.web.config.WebAutoConfiguration
+org.springframework.context.ApplicationListener=\
+com.sun.common.web.log.LogMDCListener
