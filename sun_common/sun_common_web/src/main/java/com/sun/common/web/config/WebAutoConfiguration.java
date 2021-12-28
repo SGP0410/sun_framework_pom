@@ -1,5 +1,7 @@
 package com.sun.common.web.config;
 
+import com.sun.common.web.exception.GlobalException;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
@@ -10,4 +12,10 @@ import org.springframework.context.annotation.ComponentScan;
 //@Configuration
 @ComponentScan("com.sun.business")
 public class WebAutoConfiguration {
+
+    @Bean
+    public GlobalException getGlobalException(){
+        return new GlobalException();
+    }
+
 }

@@ -96,6 +96,12 @@
                 <version>${basic.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.sun</groupId>
+                <artifactId>sun_common_core</artifactId>
+                <version>${basic.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

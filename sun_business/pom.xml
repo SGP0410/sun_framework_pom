@@ -16,11 +16,11 @@
     </modules>
 
     <dependencies>
+        <!--本地工程-->
         <dependency>
             <groupId>com.sun</groupId>
             <artifactId>sun_common_web</artifactId>
         </dependency>
-
         <dependency>
             <groupId>com.sun</groupId>
             <artifactId>sun_config</artifactId>

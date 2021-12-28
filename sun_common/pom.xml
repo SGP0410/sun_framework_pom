@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>sun_common_web</module>
+        <module>sun_common_core</module>
     </modules>
 
 
