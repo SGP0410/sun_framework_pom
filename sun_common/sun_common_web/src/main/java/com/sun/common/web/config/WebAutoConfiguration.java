@@ -1,6 +1,7 @@
 package com.sun.common.web.config;
 
 import com.sun.common.web.exception.GlobalException;
+import com.sun.common.web.utils.ApplicationContextUtils;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
@@ -13,9 +14,28 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan("com.sun.business")
 public class WebAutoConfiguration {
 
+    /**
+     * 全局异常处理器
+     * @author sungp
+     * @date 2021/12/29 10:05
+     * @return com.sun.common.web.exception.GlobalException
+     */
     @Bean
     public GlobalException getGlobalException(){
         return new GlobalException();
     }
+
+    /**
+     * Spring容器工具类
+     * @author sungp
+     * @date 2021/12/29 10:06
+     * @return com.sun.common.web.utils.ApplicationContextUtils
+     */
+    @Bean
+    public ApplicationContextUtils getApplicationContextUtils(){
+        return new ApplicationContextUtils();
+    }
+
+
 
 }

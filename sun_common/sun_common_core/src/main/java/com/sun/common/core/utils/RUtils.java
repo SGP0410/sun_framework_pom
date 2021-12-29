@@ -33,7 +33,11 @@ public class RUtils {
      * @date 2021/12/28 11:06
      */
     public static <T> R<T> createFail(Codes codes) {
-        return new R<T>(codes.getCode(), codes.getMsg(), null);
+        return createFail(codes , null);
+    }
+
+    public static <T> R<T> createFail(Codes codes , T data) {
+        return new R<T>(codes.getCode(), codes.getMsg(), data);
     }
 
     public static <T> R<T> createFail(Integer code, String message) {

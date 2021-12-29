@@ -102,6 +102,12 @@
                 <version>${basic.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.sun</groupId>
+                <artifactId>sun_business_protocol</artifactId>
+                <version>${basic.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

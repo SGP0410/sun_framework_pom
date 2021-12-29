@@ -11,5 +11,12 @@
 
     <artifactId>sun_business_core</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.sun</groupId>
+            <artifactId>sun_business_protocol</artifactId>
+        </dependency>
+    </dependencies>
+
 
 </project>
