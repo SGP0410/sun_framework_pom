@@ -1,14 +1,13 @@
 package com.sun.business.demo.controller;
 
+import com.sun.business.demo.service.StudentService;
 import com.sun.business.protocol.input.StudentInput;
-import com.sun.common.core.result.Codes;
 import com.sun.common.core.result.R;
 import com.sun.common.core.utils.RUtils;
-import com.sun.common.web.exception.ServiceException;
+import com.sun.data.entity.demo.Student;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.util.Assert;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,26 +23,35 @@ import javax.validation.Valid;
 @Slf4j
 public class DemoController {
 
-    @Value("${com.name}")
-    private String name;
+    @Autowired
+    private StudentService studentService;
+
+//    @Value("${com.name}")
+//    private String name;
 
     @PostMapping("/insertStudentInput")
-    public R<StudentInput> insertStudentInput(@Valid @RequestBody StudentInput studentInput) {
+    public R<Boolean> insertStudentInput(@Valid @RequestBody StudentInput studentInput) {
         System.out.println("----->" + studentInput);
-        return RUtils.createSuccess(studentInput);
+
+        Student student = new Student();
+        BeanUtils.copyProperties(studentInput , student);
+
+        boolean save = studentService.save(student);
+
+        return RUtils.createSuccess(save);
     }
 
 
-    @GetMapping("/test")
-    public R<String> test() {
-
-        String user = null;
-        Assert.notNull(user, "用户信息不能为空");
-
-        throw new ServiceException(Codes.RESOURCES_NOT_FOUNT);
+//    @GetMapping("/test")
+//    public R<String> test() {
+//
+//        String user = null;
+//        Assert.notNull(user, "用户信息不能为空");
+//
+//        throw new ServiceException(Codes.RESOURCES_NOT_FOUNT);
 
 //        log.info("[DemoController] --- test");
 //        return RUtils.createSuccess("test");
-    }
+//    }
 
 }

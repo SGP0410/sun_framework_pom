@@ -16,6 +16,11 @@
             <groupId>com.sun</groupId>
             <artifactId>sun_business_protocol</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.sun</groupId>
+            <artifactId>sun_data_mapper_demo</artifactId>
+        </dependency>
     </dependencies>
 
 

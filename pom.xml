@@ -30,6 +30,7 @@
         <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
         <mysql-driver.version>8.0.25</mysql-driver.version>
         <basic.version>1.0</basic.version>
+        <mybatis.version>2.0.6</mybatis.version>
     </properties>
 
 
@@ -75,6 +76,19 @@
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-annotation</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+
+
 
             <!--数据库驱动-->
             <dependency>
@@ -105,6 +119,24 @@
             <dependency>
                 <groupId>com.sun</groupId>
                 <artifactId>sun_business_protocol</artifactId>
+                <version>${basic.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.sun</groupId>
+                <artifactId>sun_data_entity_demo</artifactId>
+                <version>${basic.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.sun</groupId>
+                <artifactId>sun_data_mapper_demo</artifactId>
+                <version>${basic.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.sun</groupId>
+                <artifactId>sun_common_mysql</artifactId>
                 <version>${basic.version}</version>
             </dependency>
 

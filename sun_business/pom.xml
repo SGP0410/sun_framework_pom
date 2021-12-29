@@ -21,10 +21,6 @@
             <groupId>com.sun</groupId>
             <artifactId>sun_common_web</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.sun</groupId>
-            <artifactId>sun_config</artifactId>
-        </dependency>
 
         <!--排除logback的依赖-->
         <dependency>
