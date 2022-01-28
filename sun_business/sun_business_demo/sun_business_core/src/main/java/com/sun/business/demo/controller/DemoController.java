@@ -1,13 +1,17 @@
 package com.sun.business.demo.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.sun.business.demo.service.StudentService;
 import com.sun.business.protocol.input.StudentInput;
 import com.sun.common.core.result.R;
 import com.sun.common.core.utils.RUtils;
+import com.sun.common.mysql.annotation.Paging;
 import com.sun.data.entity.demo.Student;
+import com.sun.data.mapper.demo.dao.StudentDao;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,6 +30,9 @@ public class DemoController {
     @Autowired
     private StudentService studentService;
 
+    @Autowired
+    private StudentDao studentDao;
+
 //    @Value("${com.name}")
 //    private String name;
 
@@ -34,11 +41,19 @@ public class DemoController {
         System.out.println("----->" + studentInput);
 
         Student student = new Student();
-        BeanUtils.copyProperties(studentInput , student);
+        BeanUtils.copyProperties(studentInput, student);
 
         boolean save = studentService.save(student);
 
         return RUtils.createSuccess(save);
+    }
+
+    @GetMapping("/selectStudent")
+    @Paging
+    public R selectStudent() {
+
+        return RUtils.createSuccess(studentDao.findAll());
+//        return null;
     }
 
 

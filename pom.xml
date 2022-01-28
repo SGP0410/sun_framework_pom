@@ -140,9 +140,18 @@
                 <version>${basic.version}</version>
             </dependency>
 
+
+
         </dependencies>
     </dependencyManagement>
 
+<!--    <dependencies>-->
+<!--        <dependency>-->
+<!--            <groupId>io.github.verygoodwlk</groupId>-->
+<!--            <artifactId>ken-page-boot-starter</artifactId>-->
+<!--            <version>1.2.7</version>-->
+<!--        </dependency>-->
+<!--    </dependencies>-->
 
     <!--创建占位符-->
     <profiles>

@@ -6,3 +6,10 @@ spring:
   #配置当前生效的环境
   profiles:
     active: '@sun-profiles@'
+
+sun:
+  plugin:
+    sql:
+      enable: false
+
+

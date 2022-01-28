@@ -1,5 +1,6 @@
 package com.sun.common.core.result;
 
+import com.sun.common.mysql.plugins.BasePageResult;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -10,7 +11,7 @@ import java.io.Serializable;
  * 微服务的统一返回对象
  */
 @Data
-public class R<T> implements Serializable {
+public class R<T> extends BasePageResult {
 
     //响应码
     private Integer code;

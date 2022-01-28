@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace=绑定一个对应的dao或Mapper接口-->
+<!--
+	1、id对应namespace中的方法名
+	2、resultType：SQL语句执行的返回值
+	3、parameterType：参数类型
+-->
+<mapper namespace="com.sun.data.mapper.demo.dao.StudentDao">
+
+    <sql id="fieldAll">
+            id, name, sex, email, status, del_flag, create_time, update_time
+    </sql>
+
+    <select id="findAll" resultType="com.sun.data.entity.demo.Student">
+        select <include refid="fieldAll"/>
+        from student
+    </select>
+</mapper>

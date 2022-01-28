@@ -9,6 +9,7 @@ import org.springframework.core.ResolvableType;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.MutablePropertySources;
 import org.springframework.core.env.PropertySource;
+import org.springframework.lang.NonNull;
 
 /**
  * @author sungp
@@ -32,7 +33,7 @@ public class LogMDCListener implements GenericApplicationListener {
 
 
     @Override
-    public void onApplicationEvent(ApplicationEvent applicationEvent) {
+    public void onApplicationEvent(@NonNull ApplicationEvent applicationEvent) {
         //获取微服务的名称
         ApplicationEnvironmentPreparedEvent event = (ApplicationEnvironmentPreparedEvent) applicationEvent;
         //获得配置环境对象
@@ -44,7 +45,7 @@ public class LogMDCListener implements GenericApplicationListener {
         assert propertySource != null;
         String appName = (String) propertySource.getProperty(APP_NAME);
 
-        System.out.println("------>" + appName);
+        System.out.println("[LogMDCListener] 当前启动的服务: "+appName);
         //从log4j2.xml读取
         MDC.put("logName" , appName);
         MDC.put("logPath" , appName);

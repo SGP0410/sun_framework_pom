@@ -21,6 +21,11 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.sun</groupId>
+            <artifactId>sun_common_mysql</artifactId>
+        </dependency>
     </dependencies>
+
 
 </project>
